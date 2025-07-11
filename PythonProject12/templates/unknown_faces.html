@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unknown Faces</title>
+</head>
+<body>
+  <h1>Danh sách ảnh Unknown</h1>
+  <a href="{{ url_for('index') }}">← Quay lại</a>
+  <ul>
+    {% for file in files %}
+      <li>
+        <a href="{{ url_for('unknown_file', filename=file) }}" target="_blank">{{ file }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

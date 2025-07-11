@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Camera Web</title>
+</head>
+<body>
+  <h1>Camera Web App</h1>
+
+  <form action="/toggle_camera" method="get">
+    <button type="submit">{{ 'Tắt camera' if camera_on else 'Bật camera' }}</button>
+  </form>
+
+  {% if camera_on %}
+  <img src="{{ url_for('video_feed') }}" width="640">
+  {% endif %}
+
+  <h2>Thêm ảnh người thân</h2>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <button type="submit">Tải lên</button>
+  </form>
+
+  <h2>Xem ảnh Unknown</h2>
+  <a href="{{ url_for('unknown_faces') }}">Mở thư mục Unknown_faces</a>
+
+  <form action="/shutdown" method="post" style="margin-top:20px;">
+    <button type="submit" style="background-color:red; color:white;">🛑 Tắt chương trình</button>
+  </form>
+
+</body>
+</html>
